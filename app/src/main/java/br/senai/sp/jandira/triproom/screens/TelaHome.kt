@@ -3,7 +3,6 @@ package br.senai.sp.jandira.triproom.screens
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
@@ -23,24 +22,28 @@ import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.OutlinedTextField
+import androidx.compose.material3.OutlinedTextFieldDefaults
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
-import androidx.compose.material3.TextFieldDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.Shape
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavHostController
+import androidx.navigation.compose.rememberNavController
 import br.senai.sp.jandira.triproom.R
 
 @Composable
-fun Home(){
+fun Home(controleNavegacao: NavHostController) {
 
     var buscarDestinoState = remember {
         mutableStateOf("")
@@ -49,14 +52,20 @@ fun Home(){
     Column (
         modifier = Modifier
             .fillMaxSize()
-            .background(color = Color(0xDCFFFFFF)),
+            .background(color = Color(0xffF6F6F6)),
     ){
 
-        Column(modifier = Modifier
+        Surface(modifier = Modifier
             .fillMaxWidth()
             .height(220.dp)
-            .background(color = Color(0xFFCE7DC6)),
         ){
+            Image(
+                painter = painterResource(id = R.drawable.backgroundheader ),
+                contentDescription = "",
+                contentScale = ContentScale.Crop
+
+            )
+
 
             Column(modifier = Modifier
                 .fillMaxWidth()
@@ -65,12 +74,17 @@ fun Home(){
                 Column(
                     modifier = Modifier
                         .fillMaxWidth()
-                        .height(120.dp),
+                        .height(130.dp),
                     horizontalAlignment = Alignment.End
                 ){
-                    Box(modifier = Modifier
+                    Surface(modifier = Modifier
                         .width(60.dp)
-                        .height(60.dp)){
+                        .height(60.dp),
+                        shape = RoundedCornerShape(50.dp)
+
+                    )
+                    {
+                        Image(painter = painterResource(id = R.drawable.fotoperfil), contentDescription = "Foto de perfil")
 
                     }
                     Text(text = "Susanna Hoffs",
@@ -86,12 +100,13 @@ fun Home(){
                             tint = Color.White
                         )
                         Text(text = "You're in Paris",
-                            color = Color.White
+                            color = Color.White,
+                            fontSize = 14.sp,
                         )
                     }
                     Text(text = "My Trips",
                         color = Color.White,
-                        fontSize = 34.sp,
+                        fontSize = 30.sp,
                         fontWeight = FontWeight.Bold
                     )
                 }
@@ -100,7 +115,9 @@ fun Home(){
         Row (modifier = Modifier
             .padding(16.dp)
         ) {
-            Text(text = "Categories")
+            Text(text = "Categories",
+                color = Color(0xFF868181),
+                fontSize = 16.sp)
         }
         LazyRow(modifier = Modifier
             .padding(start = 16.dp)
@@ -141,32 +158,51 @@ fun Home(){
                     .fillMaxWidth(),
                 placeholder = {
                     Text(
-                        text = "Buscar personagens",
-                        color = Color.Gray
+                        text = "Search your destiny",
+                        color = Color(0xFFADAAAA)
                     )
                 },
                 shape = RoundedCornerShape(22.dp),
-                colors = TextFieldDefaults.colors(Color.White),
+//              colors = TextFieldDefaults.colors(Color.White),
+
+                colors =
+                OutlinedTextFieldDefaults
+                    .colors(
+                        focusedBorderColor = Color(0xFFFFFFFF),
+                        unfocusedBorderColor = Color(0xffFFFFFF),
+                        unfocusedContainerColor = Color(0xffFFFFFF),
+                    ),
+
+
                 trailingIcon = {
                     IconButton(onClick = { /*TODO*/ }) {
                         Icon(
                             imageVector = Icons.Default.Search,
                             contentDescription = "Search your destiny",
-                            tint = Color.Gray
+                            tint = Color(0xFFADAAAA)
                         )
                     }
                 }
             )
 
             Spacer(modifier = Modifier.height(30.dp))
-            Text(text = "Past Trips")
-            Spacer(modifier = Modifier.height(20.dp))
+            Text(text = "Past Trips",
+                color = Color(0xFF868181),
+                fontSize = 16.sp
+            )
+
+            Spacer(modifier = Modifier.height(14.dp))
 
             LazyColumn(){
 
-                items(2){
-
+                items(4){
                     Card (
+                        elevation = CardDefaults.cardElevation(
+                            defaultElevation = 6.dp
+                        ),
+                        colors = CardDefaults.cardColors(
+                            containerColor = Color.White
+                        )
 
                     ){
                         Column (modifier = Modifier
@@ -174,18 +210,27 @@ fun Home(){
 
                             Surface(modifier = Modifier
                                 .fillMaxWidth()
-                                .height(80.dp)){
-                                Image(painter = painterResource(id = R.drawable.london)
-                                    , contentDescription = "Super foto de londres",
-                                    contentScale = ContentScale.Crop)
+                                .height(120.dp),
+                                shape = RoundedCornerShape(6.dp)
+                            )
+                            {
+                                Image(
+                                    painter = painterResource(id = R.drawable.london),
+                                    contentDescription = "",
+                                    contentScale = ContentScale.Crop
+
+                                )
                             }
 
+                            Spacer(modifier = Modifier.height(12.dp))
                             Text(text = "London, 2019",
                                 color = Color(0xFFCF06F0),
                                 fontSize = 18.sp)
+                            Spacer(modifier = Modifier.height(6.dp))
                             Text(text = "London is the capital and largest city of  the United Kingdom, with a population of just under 9 million.",
                                 color = Color(0xFF7A7A7A),
-                                fontSize = 11.sp)
+                                fontSize = 11.sp,
+                                lineHeight = 15.sp)
 
                             Row (horizontalArrangement = Arrangement.End,
                                 modifier = Modifier.fillMaxWidth()){
@@ -195,11 +240,17 @@ fun Home(){
                             }
                         }
                     }
-                    Spacer(modifier = Modifier.height(30.dp))
+                    Spacer(modifier = Modifier.height(15.dp))
                 }
             }
         }
 
 
     }
+}
+
+@Preview(showBackground = true, showSystemUi = true)
+@Composable
+fun HomePreview() {
+    Home(controleNavegacao = rememberNavController())
 }
