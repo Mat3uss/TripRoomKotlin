@@ -1,3 +1,30 @@
 <resources>
     <string name="app_name">TripRoom</string>
+
+    <string name="login">Login</string>
+    <string name="please_sign_in_to_continue">Please Sign In to Continue</string>
+    <string name="password_sign_in">Password</string>
+    <string name="sign_in">SIGN IN</string>
+    <string name="dont_have_an_account">Don`t have an account?</string>
+    <string name="sign_up_login">Sign Up</string>
+
+    <string name="where_are_you">You`re in Paris</string>
+    <string name="past_trips">Past Trips</string>
+    <string name="categories">categories</string>
+    <string name="mountain">Mountain</string>
+    <string name="snow">Snow</string>
+    <string name="beach">Beach</string>
+    <string name="search_your_destiny">Search your Destiny</string>
+
+    <string name="sign_up">Sign Up</string>
+    <string name="create_a_new_account">Create a new Account</string>
+    <string name="username">Username</string>
+    <string name="phone">Phone</string>
+    <string name="email">Email</string>
+    <string name="password_sign_up">Password</string>
+    <string name="over_18">Over 18?</string>
+    <string name="create_account">CREATE ACCOUNT</string>
+    <string name="already_have_an_account">Already have an account?</string>
+    <string name="sing_in_sign_up">Sign In</string>
+
 </resources>
