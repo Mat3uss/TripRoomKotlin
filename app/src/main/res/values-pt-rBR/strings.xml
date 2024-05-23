@@ -1,0 +1,30 @@
+<resources>
+    <string name="app_name">TripRoom</string>
+
+    <string name="login">Login</string>
+    <string name="please_sign_in_to_continue">Por favor faça o login para continuar</string>
+    <string name="password_sign_in">Senha</string>
+    <string name="sign_in">LOGUE SE</string>
+    <string name="dont_have_an_account">Não tem uma conta?</string>
+    <string name="sign_up_login">Cadastre-se</string>
+
+    <string name="where_are_you">Voce esta em Paris</string>
+    <string name="past_trips">Viagens Passadas</string>
+    <string name="categories">Categorias</string>
+    <string name="mountain">Montanha</string>
+    <string name="snow">Neve</string>
+    <string name="beach">Praia</string>
+    <string name="search_your_destiny">Busque seu destino</string>
+
+    <string name="sign_up">Cadastre se</string>
+    <string name="create_a_new_account">Crie uma nova contat</string>
+    <string name="username">Nome de Usuario</string>
+    <string name="phone">Telefone</string>
+    <string name="email">Email</string>
+    <string name="password_sign_up">Senha</string>
+    <string name="over_18">Maior de 18?</string>
+    <string name="create_account">Crie a Conta</string>
+    <string name="already_have_an_account">Já tem uma conta?</string>
+    <string name="sing_in_sign_up">Logue Se</string>
+
+</resources>

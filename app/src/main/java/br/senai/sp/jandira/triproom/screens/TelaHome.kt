@@ -38,6 +38,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
@@ -94,13 +95,14 @@ fun Home(controleNavegacao: NavHostController) {
                             shape = CircleShape
                         ){
                             Image(
+                                modifier = Modifier.fillMaxSize(),
                                 painter = painterResource(id = R.drawable.fotoperfil),
                                 contentDescription = "",
                                 contentScale = ContentScale.Crop
                             )
                         }
                         Text(
-                            text = "Bart Simpson",
+                            text = "Susana Hoffs",
                             color =  Color.White,
                             fontSize = 16.sp
                         )
@@ -115,13 +117,13 @@ fun Home(controleNavegacao: NavHostController) {
                                 .size(24.dp)
                         )
                         Text(
-                            text = "You're in Paris",
+                            text = stringResource(id = R.string.where_are_you),
                             color = Color.White,
                             fontSize = 18.sp
                         )
                     }
                     Text(
-                        text = "My Trips",
+                        text = stringResource(id = R.string.app_name),
                         color = Color.White,
                         fontSize = 32.sp,
                         fontWeight = FontWeight.Bold
@@ -140,7 +142,7 @@ fun Home(controleNavegacao: NavHostController) {
     ){
         Spacer(modifier = Modifier.height(12.dp))
         Text(
-            text = "Categories",
+            text = stringResource(id = R.string.categories),
             fontWeight = FontWeight.Normal,
             color = Color.Black,
             fontSize = 18.sp
@@ -192,7 +194,7 @@ fun Home(controleNavegacao: NavHostController) {
                 .fillMaxWidth(),
             placeholder = {
                 Text(
-                    text = "Search your destiny",
+                    text = stringResource(id = R.string.search_your_destiny),
                     color = Color.Gray
                 )
             },
@@ -215,7 +217,7 @@ fun Home(controleNavegacao: NavHostController) {
         )
         Spacer(modifier = Modifier.height(12.dp))
         Text(
-            text = "Past Trips",
+            text = stringResource(id = R.string.past_trips),
             fontWeight = FontWeight.Normal,
             color = Color.Black,
             fontSize = 18.sp,

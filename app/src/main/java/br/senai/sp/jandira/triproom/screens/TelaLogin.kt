@@ -29,10 +29,14 @@ import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavHostController
+import androidx.navigation.compose.rememberNavController
+import br.senai.sp.jandira.triproom.R
 
 @Composable
 fun Login(controleNavegacao: NavHostController) {
@@ -71,12 +75,13 @@ fun Login(controleNavegacao: NavHostController) {
         Column (modifier = Modifier
             .padding(22.dp)
         ){
-            Text(text = "Login",
+            Text(
+                text = stringResource(id = R.string.login),
                 color = Color(0xffCF06F0),
                 fontSize = 48.sp,
                 fontWeight = FontWeight.Bold,
             )
-            Text(text = "Please sign in to continue.",
+            Text(text = stringResource(id = R.string.please_sign_in_to_continue),
                 color = Color(0xFFA09C9C)
             )
         }
@@ -98,7 +103,7 @@ fun Login(controleNavegacao: NavHostController) {
                     emailState.value = it
                 },
                 label = {
-                    Text(text = "E-mail")
+                    Text(text = stringResource(id = R.string.email))
                 },
                 leadingIcon = {
                     Icon(imageVector = Icons.Default.Lock,
@@ -122,7 +127,7 @@ fun Login(controleNavegacao: NavHostController) {
                     passwordState.value = it
                 },
                 label = {
-                    Text(text = "Password")
+                    Text(text = stringResource(id = R.string.password_sign_up))
                 },
                 leadingIcon = {
                     Icon(imageVector = Icons.Default.Email,
@@ -171,10 +176,10 @@ fun Login(controleNavegacao: NavHostController) {
                 }
             }
             Row {
-                Text(text = "Don’t have an account?",
+                Text(text = stringResource(id = R.string.create_a_new_account),
                     color = Color(0xFFFA09C9C)
                 )
-                Text(text = "Sign in",
+                Text(text = stringResource(id = R.string.sign_in),
                     color = Color(0xFFCF06F0),
                     fontWeight = FontWeight.Bold,
                     modifier = Modifier
@@ -203,4 +208,12 @@ fun Login(controleNavegacao: NavHostController) {
             ){}
         }
     }
+}
+
+
+@Preview(showBackground =  true, showSystemUi = true)
+@Composable
+fun TelaLoginPreview() {
+    Login(controleNavegacao = rememberNavController())
+
 }

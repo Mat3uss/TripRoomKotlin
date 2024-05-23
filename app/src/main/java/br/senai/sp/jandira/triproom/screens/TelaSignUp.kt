@@ -35,10 +35,13 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavHostController
+import androidx.navigation.compose.rememberNavController
 import br.senai.sp.jandira.triproom.R
 
 @Composable
@@ -88,12 +91,13 @@ fun SignUp(controleNavegacao: NavHostController) {
             horizontalAlignment = Alignment.CenterHorizontally,
             verticalArrangement = Arrangement.Center
         ){
-            Text(text = "Sign Up",
+            Text(
+                text = stringResource(id = R.string.sign_up),
                 color = Color(0xffCF06F0),
                 fontSize = 48.sp,
                 fontWeight = FontWeight.Bold,
             )
-            Text(text = "Create a new account",
+            Text(text = stringResource(id = R.string.create_a_new_account),
                 color = Color(0xFFA09C9C)
             )
         }
@@ -153,7 +157,7 @@ fun SignUp(controleNavegacao: NavHostController) {
                     usernameState.value = it
                 },
                 label = {
-                    Text(text = "Username")
+                    Text(text = stringResource(id = R.string.username))
                 },
                 leadingIcon = {
                     Icon(imageVector = Icons.Default.Person,
@@ -177,7 +181,7 @@ fun SignUp(controleNavegacao: NavHostController) {
                     phoneState.value = it
                 },
                 label = {
-                    Text(text = "Phone")
+                    Text(text = stringResource(id = R.string.phone))
                 },
                 leadingIcon = {
                     Icon(imageVector = Icons.Default.Phone,
@@ -200,7 +204,7 @@ fun SignUp(controleNavegacao: NavHostController) {
                     emailState.value = it
                 },
                 label = {
-                    Text(text = "E-mail")
+                    Text(text = stringResource(id = R.string.email))
                 },
                 leadingIcon = {
                     Icon(imageVector = Icons.Default.Email,
@@ -223,7 +227,7 @@ fun SignUp(controleNavegacao: NavHostController) {
                     passwordState.value = it
                 },
                 label = {
-                    Text(text = "Password")
+                    Text(text = stringResource(id = R.string.password_sign_up))
                 },
                 leadingIcon = {
                     Icon(imageVector = Icons.Default.Lock,
@@ -262,7 +266,7 @@ fun SignUp(controleNavegacao: NavHostController) {
                         uncheckedColor = Color(0xffCF06F0)
                     )
             )
-            Text(text = "Over 18?")
+            Text(text = stringResource(id = R.string.over_18))
         }
 
         Column (
@@ -285,7 +289,7 @@ fun SignUp(controleNavegacao: NavHostController) {
                     horizontalArrangement = Arrangement.SpaceAround
                 ) {
                     Text(
-                        text = "Create Account",
+                        text = stringResource(id = R.string.create_a_new_account),
                         fontSize = 26.sp
                     )
                 }
@@ -299,10 +303,10 @@ fun SignUp(controleNavegacao: NavHostController) {
             horizontalArrangement = Arrangement.End
 
         ){
-            Text(text = "Already have an account?",
+            Text(text = stringResource(id = R.string.already_have_an_account),
                 color = Color(0xFFFA09C9C)
             )
-            Text(text = "Login",
+            Text(text = stringResource(id = R.string.login),
                 color = Color(0xFFCF06F0),
                 fontWeight = FontWeight.Bold,
                 modifier = Modifier
@@ -329,4 +333,12 @@ fun SignUp(controleNavegacao: NavHostController) {
             )
         ){}
     }
+}
+
+
+@Preview(showBackground =  true, showSystemUi = true)
+@Composable
+fun TelaSignUpPreview() {
+    SignUp(controleNavegacao = rememberNavController())
+
 }
